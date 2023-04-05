@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block contenido_cambia %}
+    <h1>Alojamientos</h1>
+    <ul>
+    {% if alojamientos %}
+        {% for alojamiento in alojamientos %}
+            <li><a href="##">{{ alojamiento.titulo }}</a></li>
+        {% endfor %}
+    {% else %}
+        <h4>No hay alojamientos hasta el  momento</h4>
+    {% endif %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block contenido_cambia %}
+    <h1>Destinos</h1>
+
+    <form action="{% url 'AppCoderBuscarDestino' %}">
+        {{ form_buscar.as_p }}
+        <input type="submit" value="Buscar">
+    </form>
+
+<hr><br>
+<a href="{% url 'AppCoderCrearDestino' %}">Creacion del destino</a>
+
+<hr><br>
+
+    {% if destinos %}
+        {% for destino in destinos %}
+            <li><a href="##">{{ destino.titulo }}</a> <a href="{% url 'AppCoderEliminarDestino' destino.titulo %}">Eliminar</a> <a href="{% url 'AppCoderEditarDestino' destino.titulo %}">Editar</a> </li>
+            
+        {% endfor %}
+    {% else %}
+        <h4>No hay destinos hasta el  momento</h4>
+    {% endif %}
+{% endblock %}

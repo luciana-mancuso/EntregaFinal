@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block contenido_cambia %}
+    <h1>Museos</h1>
+    <ul>
+    {% if museos %}
+        {% for museo in museos %}
+            <li><a href="##">{{ museo.titulo }}</a></li>
+        {% endfor %}
+    {% else %}
+        <h4>No hay museos hasta el  momento</h4>
+    {% endif %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block contenido_cambia %}
+    <h1>Destinos</h1>
+    {% if destinos %}
+        {% for destino in destinos %}
+            <p>destino: {{ destino }}</p>
+        {% endfor %}
+    {% else %}
+        <h4>No hay destinos filtrados </h4>
+    {% endif %}
+{% endblock %}
