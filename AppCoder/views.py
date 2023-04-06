@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from AppCoder.models import Destino, Alojamiento, Museo
 from AppCoder.forms import DestinoForm, BusquedaDestinoForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -11,7 +12,7 @@ def lista_destinos(request):
     return render(request, "AppCoder/destinos.html", context=context)
 
 
-
+@login_required
 def crear_destino(request):
     if request.method=="POST":
         mi_formulario=DestinoForm(request.POST)
@@ -23,7 +24,7 @@ def crear_destino(request):
     context={"form": DestinoForm()}
     return render(request, 'AppCoder/crear_destino.html', context=context)
 
-
+@login_required
 def editar_destino(request, titulo):
     get_destino=Destino.objects.get(titulo=titulo)
     if request.method=="POST":
@@ -41,7 +42,7 @@ def editar_destino(request, titulo):
     return render(request, 'AppCoder/editar_destino.html', context=context)
 
 
-
+@login_required
 def eliminar_destino(request, titulo):
     get_destino=Destino.objects.get(titulo=titulo)
     get_destino.delete()
@@ -64,7 +65,7 @@ def lista_alojamientos(request):
     alojamientos = Alojamiento.objects.all()
     return render(request, "AppCoder/alojamientos.html", {'alojamientos': alojamientos})
 
-
+@login_required
 def crear_alojamiento(request, titulo):
     save_alojamiento=Alojamiento(titulo=titulo)
     save_alojamiento.save()
@@ -81,7 +82,7 @@ def lista_museos(request):
     museos = Museo.objects.all()
     return render(request, "AppCoder/museos.html", {'museos': museos})
 
-
+@login_required
 def crear_museo(request, titulo):
     save_museo=Museo(titulo=titulo)
     save_museo.save()
