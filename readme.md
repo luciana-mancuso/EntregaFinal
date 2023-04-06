@@ -11,29 +11,29 @@ Django: framework de desarrollo web en Python
 HTML/CSS: lenguajes de marcado para el diseño y presentación del sitio web
 Bootstrap: framework de diseño web para HTML, CSS y JavaScript
 
-Funcionalidades
+<h3>Funcionalidades</h3>
 El sitio web cuenta con las siguientes funcionalidades:
 
-Listado de destinos turísticos
-Creación, edición y eliminación de destinos turísticos (sólo para usuarios autenticados)
-Búsqueda de destinos turísticos por título
-Listado de alojamientos
-Creación de alojamientos asociados a un destino turístico (sólo para usuarios autenticados)
-Listado de museos
-Creación de museos asociados a un destino turístico (sólo para usuarios autenticados)
+<h3>Listado de destinos turísticos</h3><br>
+-Creación, edición y eliminación de destinos turísticos (sólo para usuarios autenticados)<br>
+-Búsqueda de destinos turísticos por título<br>
+-Listado de alojamientos<br>
+-Creación de alojamientos asociados a un destino turístico (sólo para usuarios autenticados)<br>
+-Listado de museos<br>
+-Creación de museos asociados a un destino turístico (sólo para usuarios autenticados)<br>
 
-Cómo probar el proyecto
-Para probar el proyecto, se requiere tener instalado Python y Django en la computadora. Luego, se deben seguir los siguientes pasos:
+<h3>Cómo probar el proyecto</h3><br>
+Para probar el proyecto, se requiere tener instalado Python y Django en la computadora. Luego, se deben seguir los siguientes pasos:<br>
 
-Clonar el repositorio: git clone https://github.com/luciana-mancuso/EntregaFinal.git
-Acceder al directorio del proyecto: cd EntregaFinal
-Instalar las dependencias del proyecto: pip install -r requirements.txt
-Realizar las migraciones de la base de datos: python manage.py migrate
-Crear un superusuario: python manage.py createsuperuser
-Iniciar el servidor local: python manage.py runserver
-Acceder al sitio web en un navegador web en la dirección http://localhost:8000/
-¡Listo! Ahora podrás probar todas las funcionalidades del sitio web.
+Clonar el repositorio: git clone https://github.com/luciana-mancuso/EntregaFinal.git<br>
+Acceder al directorio del proyecto: cd EntregaFinal<br>
+Instalar las dependencias del proyecto: pip install -r requirements.txt<br>
+Realizar las migraciones de la base de datos: python manage.py migrate<br>
+Crear un superusuario: python manage.py createsuperuser<br>
+Iniciar el servidor local: python manage.py runserver<br>
+Acceder al sitio web en un navegador web en la dirección http://localhost:8000/ <br>
+¡Listo! Ahora podrás probar todas las funcionalidades del sitio web. <br>
 
 
-Autor
+<h3>Autor</h3><br>
 Este proyecto fue desarrollado por Luciana Mancuso.
