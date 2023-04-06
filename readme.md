@@ -1,11 +1,10 @@
 # EntregaFinal
 
-Proyecto Entrega Final
 
 Este proyecto fue desarrollado como entrega final del curso "Python-CoderHouse (Comisión 34675)". 
 Se trata de un sitio web que muestra información sobre destinos turísticos, alojamientos y museos.
 
-Tecnologías utilizadas
+<h3>Tecnologías utilizadas</h3>
 El proyecto fue desarrollado utilizando las siguientes tecnologías:
 
 Django: framework de desarrollo web en Python
