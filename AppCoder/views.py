@@ -4,7 +4,11 @@ from AppCoder.models import Destino, Alojamiento, Museo
 from AppCoder.forms import DestinoForm, BusquedaDestinoForm
 from django.contrib.auth.decorators import login_required
 
-# Create your views here.
+# Create your views here.def
+
+
+def home(request):
+    return render(request, "AppCoder/home.html")
 
 def lista_destinos(request):
     destinos = Destino.objects.all()
