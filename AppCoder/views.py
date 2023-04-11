@@ -16,6 +16,16 @@ def lista_destinos(request):
     return render(request, "AppCoder/destinos.html", context=context)
 
 
+
+def detalle_destino(request, destino_id):
+    destino=Destino.objects.get(id=destino_id)
+    context={"destino": destino}
+    return render(request, "AppCoder/detalle_destino.html", context=context)
+
+
+
+
+
 @login_required
 def crear_destino(request):
     if request.method=="POST":
