@@ -18,13 +18,20 @@
         <h6><li>{{ destino.titulo }}</li></h6>
                 {{ destino.descripcion|truncatewords:15 }} <a href="{% url 'AppCoderDetalle_destino' destino.id %}">Leer más...</a> <br>
                 <a href="{% url 'AppCoderEliminarDestino' destino.titulo %}">Eliminar</a> <a href="{% url 'AppCoderEditarDestino' destino.titulo %}">Editar</a><br>
+                {% if destino.imagen %}
+                    <img src="{{destino.imagen.url}}" alt="{{destino.titulo}}">
+                {% endif %}
+                <br>
+                <br>
                 <br>
         {% endfor %}
-                
+
     {% else %}
         <h4>No hay destinos hasta el  momento</h4>
     {% endif %}
-    
+    <br>
+    <br>
+    <br>
             <!-- Side widgets-->
             <div class="col-lg-4">
 

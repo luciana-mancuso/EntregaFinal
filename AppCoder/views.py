@@ -28,13 +28,22 @@ def detalle_destino(request, destino_id):
 
 @login_required
 def crear_destino(request):
+    destino=request.destino
     if request.method=="POST":
-        mi_formulario=DestinoForm(request.POST)
+        mi_formulario=DestinoForm(request.POST, request.Files)
         if mi_formulario.is_valid():
             informacion=mi_formulario.cleaned_data
             destino_save=Destino(titulo=informacion['titulo'], descripcion=informacion['descripcion'])
             destino_save.save()
-            return redirect("AppCoderDestinos")
+            try:
+                destino.destinos.imagen=informacion["imagen"]
+            except:
+                destino=Destino(desitno=destino,  imagen=informacion["imagen"])
+                destino.save()
+        
+        return redirect("AppCoderDestinos")
+    
+    
     context={"form": DestinoForm()}
     return render(request, 'AppCoder/crear_destino.html', context=context)
 
