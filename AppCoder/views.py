@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from AppCoder.models import Destino, Alojamiento, Museo
-from AppCoder.forms import DestinoForm, BusquedaDestinoForm
+from AppCoder.forms import DestinoForm, BusquedaDestinoForm, ComentarioForm
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.def
@@ -19,33 +19,43 @@ def lista_destinos(request):
 
 def detalle_destino(request, destino_id):
     destino=Destino.objects.get(id=destino_id)
-    context={"destino": destino}
-    return render(request, "AppCoder/detalle_destino.html", context=context)
+    comentarios=destino.comentarios.all()
+    
+    if request.method == 'POST':
+        comentario_form=ComentarioForm(request.POST)
+        if comentario_form.is_valid():
+            nuevo_comentario= comentario_form.save(commit=False)
+            nuevo_comentario.destino=destino
+            nuevo_comentario.save()
+            return redirect("AppCoderDetalle_destino", destino_id)
+    else:
+        comentario_form=ComentarioForm()
 
+    context={"destino": destino, 'comentarios': comentarios, 'comentario_form': comentario_form}
+    return render(request, "AppCoder/detalle_destino.html", context=context)
 
 
 
 
 @login_required
 def crear_destino(request):
-    destino=request.destino
-    if request.method=="POST":
-        mi_formulario=DestinoForm(request.POST, request.Files)
+    if request.method == "POST":
+        mi_formulario = DestinoForm(request.POST, request.FILES)
         if mi_formulario.is_valid():
-            informacion=mi_formulario.cleaned_data
-            destino_save=Destino(titulo=informacion['titulo'], descripcion=informacion['descripcion'])
-            destino_save.save()
+            informacion = mi_formulario.cleaned_data
+            destino = Destino(titulo=informacion['titulo'], descripcion=informacion['descripcion'])
+            destino.save()
             try:
-                destino.destinos.imagen=informacion["imagen"]
+                destino.imagen = informacion["imagen"]
             except:
-                destino=Destino(desitno=destino,  imagen=informacion["imagen"])
+                destino = Destino(destino=destino, imagen=informacion["imagen"])
                 destino.save()
-        
-        return redirect("AppCoderDestinos")
-    
-    
-    context={"form": DestinoForm()}
+            return redirect("AppCoderDestinos")
+
+    context = {"form": DestinoForm()}
     return render(request, 'AppCoder/crear_destino.html', context=context)
+
+
 
 @login_required
 def editar_destino(request, titulo):
@@ -55,8 +65,12 @@ def editar_destino(request, titulo):
         if mi_formulario.is_valid():
             informacion=mi_formulario.cleaned_data
 
-            get_destino.titulo=informacion['titulo'] 
+            get_destino.titulo=informacion['titulo']
+            get_destino.subtitulo=informacion['subtitulo'] 
             get_destino.descripcion=informacion['descripcion']
+            get_destino.autor=informacion['autor']
+            get_destino.fecha=informacion['fecha']
+            
 
             get_destino.save()
             return redirect("AppCoderDestinos")

@@ -15,12 +15,18 @@
 
     {% if destinos %}
         {% for destino in destinos %}
-        <h6><li>{{ destino.titulo }}</li></h6>
+        <h4><li>{{ destino.titulo }}</li></h4>
+            <h6>{{ destino.subtitulo }}</h6>
                 {{ destino.descripcion|truncatewords:15 }} <a href="{% url 'AppCoderDetalle_destino' destino.id %}">Leer más...</a> <br>
+                
+                {{ destino.autor }} - {{ destino.fecha}}
+                <br>
                 <a href="{% url 'AppCoderEliminarDestino' destino.titulo %}">Eliminar</a> <a href="{% url 'AppCoderEditarDestino' destino.titulo %}">Editar</a><br>
                 {% if destino.imagen %}
                     <img src="{{destino.imagen.url}}" alt="{{destino.titulo}}">
                 {% endif %}
+                
+                
                 <br>
                 <br>
                 <br>
