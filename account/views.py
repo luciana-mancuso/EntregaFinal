@@ -3,6 +3,9 @@ from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, logout, authenticate
 from account.forms import UserRegisterForm
 from account.models import Avatar
+from django.contrib.auth.decorators import login_required
+
+
 
 # Create your views here.
 
@@ -64,3 +67,4 @@ def editar_usuario(request):
     form = UserRegisterForm(initial={"username": user.username, "email": user.email, "is_staff": user.is_staff})
     contex = {"form": form}
     return render(request, "account/editar_usuario.html", context=contex)
+
