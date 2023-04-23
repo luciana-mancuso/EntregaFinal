@@ -37,5 +37,5 @@ Acceder al sitio web en un navegador web en la dirección http://localhost:8000/
 <h3>Video demostrativo del funcionamiento del blog</h3><br>
 https://youtu.be/y-6_-hJ_YKo
 
-
 <h3>Autor</h3><br>
+Luciana Mancuso
