@@ -34,8 +34,8 @@ Iniciar el servidor local: python manage.py runserver<br>
 Acceder al sitio web en un navegador web en la dirección http://localhost:8000/ <br>
 ¡Listo! Ahora podrás probar todas las funcionalidades del sitio web. <br>
 
-<h3>Video demostrativo del funcionamiento del blog</h3><br>
+<h3>Video demostrativo del funcionamiento del blog</h3>
 https://youtu.be/y-6_-hJ_YKo
 
-<h3>Autor</h3><br>
+<h3>Autor</h3>
 Luciana Mancuso
